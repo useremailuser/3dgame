@@ -13,8 +13,8 @@ TagManager:
   - UI
   - groundMask
   - bullets
-  - walls
-  - enemies
+  - Obstacles
+  - Targets
   - 
   - 
   - 
