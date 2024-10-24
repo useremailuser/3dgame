@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEditor;
 
 [CustomEditor (typeof (FieldOfview))]
-public class FOVeditor : Editor
+public class FieldOfvieweditor : Editor
 {
     void OnSceneGUI()
     {

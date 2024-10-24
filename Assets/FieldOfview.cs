@@ -12,7 +12,7 @@ public class FieldOfview : MonoBehaviour
     public LayerMask walls;
 
 
-    [HideInInspector]
+    //[HideInInspector]
     public List<Transform> visibleTargets = new List<Transform>();
 
     void Start()
@@ -32,7 +32,8 @@ public class FieldOfview : MonoBehaviour
     void FindVisibleTargets()
     {
         visibleTargets.Clear();
-        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, walls);
+        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targets);
+        print(targetsInViewRadius.Length);
 
         for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
@@ -40,6 +41,7 @@ public class FieldOfview : MonoBehaviour
             Vector3 dirToTarget = (target.position - transform.position).normalized;
             if(Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
             {
+                print("valid angle");
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
                 if (!Physics.Raycast(transform.position,dirToTarget,dstToTarget,walls))
                 {
