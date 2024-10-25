@@ -17,8 +17,7 @@ public class bulletScriptr : MonoBehaviour
         }
         if (collision.gameObject.layer == 8)
         {
-            Destroy(collision.gameObject)
-                Destroy(collision.gameObject)
+          
         }
         
 
