@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
 
 
         velocity = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized * moveSpeed;
-        rigidbody.velocity = velocity;
+        rigidbody.linearVelocity = velocity;
    
        
 

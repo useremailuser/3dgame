@@ -66,7 +66,7 @@ public class Gun2 : MonoBehaviour
 
             }
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody>().AddForce(bulletSpawn.forward * 60, ForceMode.Impulse);
+            bullet.GetComponent<Rigidbody>().AddForce(bulletSpawn.forward * 120, ForceMode.Impulse);
         }
     }
 
