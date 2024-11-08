@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -14,11 +15,17 @@ public class Gun2 : MonoBehaviour
 
     public Transform bulletSpawn;
     public GameObject bulletPrefab;
+    public int currentAmmo;
+    public int maxAmmo = 6;
+    public float reloadTime = 1;
+    public float reloadDuration = 5.5f;
 
-    
+
     private void Start()
     {
+
         mainCamera = Camera.main;
+        currentAmmo = maxAmmo;
         
     }
     private (bool success, Vector3 position) GetMousePosition()
@@ -49,9 +56,15 @@ public class Gun2 : MonoBehaviour
             
      
         }
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") & currentAmmo > 0)
         {
             shoot();
+            currentAmmo -= 1;
+            Debug.Log("Fired and removed bullet");
+        }
+        else if (Input.GetButtonDown("Reload"))
+        {
+            StartCoroutine(ReloadDuration(reloadDuration));
         }
 
         void shoot()
@@ -64,9 +77,18 @@ public class Gun2 : MonoBehaviour
                 //make it look that direction
                 transform.forward = direction;
 
+
+                GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
+                bullet.GetComponent<Rigidbody>().AddForce(bulletSpawn.forward * 60, ForceMode.Impulse);
             }
-            GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody>().AddForce(bulletSpawn.forward * 60, ForceMode.Impulse);
+        }
+
+        IEnumerator ReloadDuration(float duration)
+        {   
+            Debug.Log($"Started at {Time.time}, waiting for {duration} seconds");
+            yield return new WaitForSeconds(duration);
+            currentAmmo = maxAmmo;
+            Debug.Log($"Ended at {Time.time}");
         }
     }
 

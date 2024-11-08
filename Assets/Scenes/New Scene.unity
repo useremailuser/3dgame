@@ -1168,6 +1168,10 @@ MonoBehaviour:
     m_Bits: 64
   bulletSpawn: {fileID: 603173748}
   bulletPrefab: {fileID: 610738072}
+  currentAmmo: 0
+  maxAmmo: 6
+  reloadTime: 1
+  reloadDuration: 1.5
 --- !u!114 &614558602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12440,7 +12444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2116884680
 MonoBehaviour:
   m_ObjectHideFlags: 0
