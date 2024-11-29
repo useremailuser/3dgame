@@ -53,16 +53,14 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        //rigidbody = GetComponent<Rigidbody>();
-        //if (Input.GetKey(KeyCode.W)) rigidbody.AddForce(Vector3.forward);
-        //if (Input.GetKey(KeyCode.S)) rigidbody.AddForce(Vector3.back);
-        //if (Input.GetKey(KeyCode.A)) rigidbody.AddForce(Vector3.left);
-        //if (Input.GetKey(KeyCode.D)) rigidbody.AddForce(Vector3.right);
+        rigidbody = GetComponent<Rigidbody>();
+        if (Input.GetKey(KeyCode.W)) rigidbody.AddForce(Vector3.forward);
+        if (Input.GetKey(KeyCode.S)) rigidbody.AddForce(Vector3.back);
+        if (Input.GetKey(KeyCode.A)) rigidbody.AddForce(Vector3.left);
+        if (Input.GetKey(KeyCode.D)) rigidbody.AddForce(Vector3.right);
 
 
-        velocity = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized * moveSpeed;
-        rigidbody.linearVelocity = velocity;
-   
+        velocity = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized * moveSpeed;   
        
 
     }

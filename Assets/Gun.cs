@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class Gun2 : MonoBehaviour
+public class Gun : MonoBehaviour
 {
     private void Update()
     {
