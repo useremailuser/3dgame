@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class CameraReal : MonoBehaviour
 {
-    Rigidbody rigidbody;
-    Camera viewCamera;
 
+    Camera viewCamera;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        GetComponent<Rigidbody>();
         viewCamera = Camera.main;
     }
 

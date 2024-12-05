@@ -25,10 +25,9 @@ public class Player : MonoBehaviour
     public float sensX;
     public float sensY;
 
-    Rigidbody rigidbody;
 
     Camera viewCamera;
-
+    
 
 
     //float xRotation
@@ -45,7 +44,7 @@ public class Player : MonoBehaviour
 
        // Cursor.lockstate = CursorLockMode.Locked;
        // Cursor.visible = false;
-       rigidbody = GetComponent<Rigidbody>();
+       player.GetComponent<Rigidbody>();
        viewCamera = Camera.main;
   
     }
@@ -53,11 +52,10 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        rigidbody = GetComponent<Rigidbody>();
-        if (Input.GetKey(KeyCode.W)) rigidbody.AddForce(Vector3.forward);
-        if (Input.GetKey(KeyCode.S)) rigidbody.AddForce(Vector3.back);
-        if (Input.GetKey(KeyCode.A)) rigidbody.AddForce(Vector3.left);
-        if (Input.GetKey(KeyCode.D)) rigidbody.AddForce(Vector3.right);
+        if (Input.GetKey(KeyCode.W)) player.GetComponent<Rigidbody>().AddForce(Vector3.forward);
+        if (Input.GetKey(KeyCode.S)) player.GetComponent<Rigidbody>().AddForce(Vector3.back);
+        if (Input.GetKey(KeyCode.A)) player.GetComponent<Rigidbody>().AddForce(Vector3.left);
+        if (Input.GetKey(KeyCode.D)) player.GetComponent<Rigidbody>().AddForce(Vector3.right);
 
 
         velocity = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized * moveSpeed;   
