@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class AI : MonoBehaviour
 {
     public GameObject Player;
-    public bool isInView;
     // Start is called before the first frame update
     void Start()
     {
