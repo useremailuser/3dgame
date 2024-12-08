@@ -48,30 +48,30 @@ public class Damageable : MonoBehaviour
         healthCurrent = 0;
         onHealthZero.Invoke();
         Debug.Log($"the agent {name} has died");
+        Destroy(gameObject);
     
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         CheckForDamage(collision.gameObject);
- 
     }
     private void OnTriggerEnter(Collider other)
     {
         CheckForDamage(other.gameObject);
     }
-    private void OnParticleCollision(GameObject other)
-    {
-        CheckForDamage(other);
-    }
     private void CheckForDamage(GameObject possibleSource)
     {
         if (possibleSource.TryGetComponent<DamageSource>(out DamageSource damageSource))
         {
+            Debug.Log("erm");
             if (possibleSource.CompareTag(tag))
             {
+                Debug.Log("cringe");
                 return;
+                
             }
+            Debug.Log("yupp");
             TakeDamage(damageSource.GetDamage());
         }
     }

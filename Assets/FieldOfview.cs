@@ -45,6 +45,7 @@ public class FieldOfview : MonoBehaviour
 
     void FindVisibleTargets()
     {
+        
         visibleTargets.Clear();
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targets);
         print(targetsInViewRadius.Length);
@@ -60,6 +61,7 @@ public class FieldOfview : MonoBehaviour
                 if (!Physics.Raycast(transform.position,dirToTarget,dstToTarget,walls))
                 {
                     visibleTargets.Add(target);
+                    target.GetComponent<MeshRenderer>().enabled = true;
                 }
 
             }
